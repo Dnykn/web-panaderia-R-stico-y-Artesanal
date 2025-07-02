@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Horno de la Tierra - Panadería Artesanal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">El Horno de la Tierra</a>
+            <nav class="nav">
+                <a href="#filosofia">Filosofía</a>
+                <a href="#nuestros-panes">Nuestros Panes</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Pan con Alma.</h1>
+                <p>Hecho a mano, con paciencia y los mejores ingredientes de nuestra tierra.</p>
+            </div>
+        </section>
+
+        <section id="filosofia" class="section container animate-on-scroll">
+            <h2>Nuestra Filosofía</h2>
+            <div class="philosophy-content">
+                <img src="imagenes/Pan-Dulce-blog.jpg" alt="Manos amasando pan">
+                <div>
+                    <h3>Del Campo a la Mesa</h3>
+                    <p>Creemos en el poder de lo simple. Usamos harina molida a la piedra, agua de manantial y sal marina. No hay secretos, solo buenos ingredientes y mucho tiempo de dedicación.</p>
+                    <p>Cada pan que sale de nuestro horno de leña es único, como las manos que lo crearon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE PANES MEJORADA CON MODALES Y PEDIDO -->
+        <section id="nuestros-panes" class="section bg-texture">
+            <div class="container">
+                <h2>Nuestros Panes de Autor</h2>
+                <div class="panes-grid">
+                    <div class="pan-card animate-on-scroll" data-modal-target="#modal-centeno" data-product-name="Pan de Centeno y Nueces">
+                        <img src="imagenes/Pan-Dulce-blog.jpg" alt="Pan de Centeno">
+                        <h3>Pan de Centeno y Nueces</h3>
+                        <p>Haz clic para conocer su historia...</p>
+                    </div>
+                    <div class="pan-card animate-on-scroll" data-modal-target="#modal-olivas" data-product-name="Hogaza de Olivas Kalamata">
+                        <img src="imagenes/Pan-Dulce-blog.jpg" alt="Pan de Olivas">
+                        <h3>Hogaza de Olivas Kalamata</h3>
+                        <p>Haz clic para conocer su historia...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN DE MAPA -->
+        <section id="contacto" class="section container animate-on-scroll">
+            <h2>Ven a Conocernos</h2>
+            <p>Encuéntranos en el corazón del campo, en la Finca El Trigal, s/n.</p>
+            <p>Abierto solo fines de semana: Sábados y Domingos de 8:00 a 14:00.</p>
+            <div class="map-container-rustic">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.85785315575!2d-3.69083868471243!3d40.41677537936528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422880a9f5d5e1%3A0x1d1e4e4e4e4e4e4!2sPuerta%20del%20Sol%2C%20Madrid!5e0!3m2!1ses!2ses!4v1678886543210!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>Elaborado con ♥ por El Horno de la Tierra</p>
+        </div>
+    </footer>
+
+    <!-- MODALES CON PEDIDO -->
+    <div class="modal" id="modal-centeno">
+        <div class="modal-content">
+            <button class="close-button">×</button>
+            <img src="imagenes/Pan-Dulce-blog.jpg" alt="Pan de centeno grande">
+            <h2>Pan de Centeno y Nueces</h2>
+            <p>Elaborado con 80% harina de centeno integral molida a la piedra y 20% harina de fuerza. Las nueces, de cosecha local, se tuestan ligeramente para potenciar su sabor antes de incorporarlas a la masa. Fermentación lenta de 24 horas.</p>
+            <div class="modal-order-section">
+                <input type="number" min="1" value="10" class="quantity-input">
+                <button class="add-to-order-button">Añadir al Pedido</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal-olivas">
+        <div class="modal-content">
+            <button class="close-button">×</button>
+            <img src="imagenes/Pan-Dulce-blog.jpg" alt="Pan de olivas grande">
+            <h2>Hogaza de Olivas Kalamata</h2>
+            <p>Este pan te transporta al Mediterráneo. Usamos olivas Kalamata enteras, deshuesadas a mano. La masa madre de trigo le da una acidez que complementa perfectamente el sabor salado y frutal de la oliva. Ideal con un chorrito de aceite de oliva virgen extra.</p>
+            <div class="modal-order-section">
+                <input type="number" min="1" value="10" class="quantity-input">
+                <button class="add-to-order-button">Añadir al Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUEVO: Contenedor para las notificaciones -->
+    <div id="notification-container"></div>
+
+    <!-- Botón flotante para enviar pedido -->
+    <button id="send-order-button" class="floating-whatsapp-button" style="display:none;">
+        🛒 Enviar Pedido
+    </button>
+
+    <script>
+        // --- LÓGICA MODAL ---
+        const openModalButtons = document.querySelectorAll('[data-modal-target]');
+        const closeModalButtons = document.querySelectorAll('.close-button');
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                openModal(modal);
+            });
+        });
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                closeModal(modal);
+            });
+        });
+
+        function openModal(modal) {
+            if (modal == null) return;
+            modal.classList.add('active');
+        }
+
+        function closeModal(modal) {
+            if (modal == null) return;
+            modal.classList.remove('active');
+        }
+
+        // --- NUEVA FUNCIÓN PARA NOTIFICACIONES ---
+        function showNotification(message) {
+            const container = document.getElementById('notification-container');
+            const toast = document.createElement('div');
+            toast.classList.add('toast');
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // --- LÓGICA DE PEDIDO ---
+        let pedido = {};
+
+        document.querySelectorAll('.add-to-order-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const modalContent = e.target.closest('.modal-content');
+                const productName = modalContent.querySelector('h2').textContent;
+                const quantity = modalContent.querySelector('.quantity-input').value;
+                
+                if (quantity > 0) {
+                    pedido[productName] = quantity;
+                    showNotification(`✔ ${quantity} x ${productName} añadido`);
+                    closeModal(button.closest('.modal'));
+                    document.getElementById('send-order-button').style.display = 'block';
+                } else {
+                    showNotification("❌ Por favor, introduce una cantidad válida.");
+                }
+            });
+        });
+
+        document.getElementById('send-order-button').addEventListener('click', () => {
+            const numero = 'TUNUMERO'; // <-- IMPORTANTE: Reemplaza con tu número
+            let mensaje = '*Solicitud de Pedido para Distribución*\n\n';
+            
+            for (const [producto, cantidad] of Object.entries(pedido)) {
+                mensaje += `- ${producto}: *${cantidad} unidades*\n`;
+            }
+
+            mensaje += '\nPor favor, confirmar disponibilidad y precios.';
+            const url = `https://api.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(url, '_blank');
+            pedido = {};
+            document.getElementById('send-order-button').style.display = 'none';
+        });
+
+        // --- LÓGICA DE ANIMACIÓN AL SCROLL ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

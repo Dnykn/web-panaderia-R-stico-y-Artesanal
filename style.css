@@ -1,0 +1,334 @@
+/* --- Variables --- */
+:root {
+    --color-principal: #5a4a42; /* Marrón tierra */
+    --color-fondo: #f4f1ea;
+    --color-acento: #6B8E23; /* Verde oliva */
+    --color-texto: #4a4a4a;
+    --fuente-titulos: 'Amatic SC', cursive;
+    --fuente-cuerpo: 'Merriweather', serif;
+}
+
+/* --- Estilos Generales --- */
+body {
+    font-family: var(--fuente-cuerpo);
+    line-height: 1.8;
+    color: var(--color-texto);
+    margin: 0;
+    background-color: var(--color-fondo);
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h2 { font-size: 3.5rem; }
+h3 { font-size: 2.5rem; }
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: transparent;
+    padding: 1.5rem 0;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-family: var(--fuente-cuerpo);
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('imagenes/campo-trigo.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 6rem;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 1rem auto 0;
+}
+
+/* --- Secciones --- */
+.section {
+    padding: 5rem 1rem;
+    text-align: center;
+}
+
+.bg-texture {
+    background-color: #e9e4d9;
+    /* Opcional: background-image: url('imagenes/textura-papel.png'); */
+}
+
+/* --- Filosofía --- */
+.philosophy-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.philosophy-content img {
+    max-width: 40%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Panes --- */
+.panes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pan-card {
+    background-color: var(--color-fondo);
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+}
+
+.pan-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    text-align: center;
+    padding: 2rem 0;
+    font-family: var(--fuente-cuerpo);
+}
+
+/* --- Media Queries para Responsividad (Ejemplo para Opción 3) --- */
+@media (max-width: 768px) {
+    .philosophy-content {
+        flex-direction: column;
+    }
+    .philosophy-content img {
+        max-width: 100%;
+    }
+    .hero { height: 50vh; }
+    .hero-text h1 { font-size: 4rem; }
+    h2 { font-size: 2.8rem; }
+}
+
+/* ... (CSS anterior) ... */
+
+/* --- Estilos para la Tarjeta de Pan Clickeable --- */
+.pan-card {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.pan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Estilos para Ventana Modal --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    padding: 20px;
+}
+.modal.active {
+    display: flex;
+}
+.modal-content {
+    background-color: var(--color-fondo);
+    padding: 2rem;
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    animation: zoomIn 0.3s;
+}
+.modal-content img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--color-principal);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Estilos para el Mapa Rústico --- */
+.map-container-rustic {
+    margin-top: 2rem;
+    border: 5px solid #dcd3c3;
+    padding: 10px;
+    background: #e9e4d9;
+}
+.map-container-rustic iframe {
+    width: 100%;
+    height: 400px;
+}
+
+/* ... CSS anterior ... */
+
+/* Estilos para la sección de pedido en el modal */
+.modal-order-section {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.quantity-input {
+    width: 70px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+.add-to-order-button {
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: var(--fuente-cuerpo);
+    font-weight: bold;
+}
+
+/* Botón flotante para enviar pedido */
+.floating-whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    font-weight: bold;
+    z-index: 150;
+    display: none; /* Oculto hasta que se añade algo al pedido */
+}
+
+/* Estilos para la animación de scroll (zoom-in) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Estilos para Notificación Toast --- */
+#notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--color-acento); /* Usa el color de acento del tema */
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-family: var(--fuente-cuerpo);
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideInAndOut 3s ease-in-out forwards;
+}
+
+@keyframes slideInAndOut {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    85% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
