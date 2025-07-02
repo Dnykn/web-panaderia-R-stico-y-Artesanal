@@ -10,7 +10,7 @@ Este repositorio contiene el código fuente de una propuesta de diseño para una
 ## 🚀 Demo en Vivo
 
 Puedes ver una demostración en vivo de este proyecto aquí:
-**[Ver Demo →](URL_DE_LA_DEMO_EN_VIVO)**
+**[Ver Demo →](https://demo-rustico-y-artesanal.netlify.app)**
 
 ---
 
